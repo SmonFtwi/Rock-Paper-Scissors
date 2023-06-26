@@ -11,6 +11,7 @@ function getComputerChoice() {
 
 function playRound(playerSelection, computerSelection) {
     if (playerSelection === computerSelection) {
+        document.getElementById('tie').textContent =`This round is a tie: you select ${playerSelection} and the computer select ${computerSelection}`;
         return "tie";
     } else if (
         (playerSelection === 'Rock' && computerSelection === 'Scissors') ||
@@ -19,6 +20,7 @@ function playRound(playerSelection, computerSelection) {
     ) {
         playerCount++;
         document.getElementById('pCount').textContent = playerCount;
+        document.getElementById('tie').textContent =`You have won: you select ${playerSelection} and the computer select ${computerSelection}`;
         return `You have won ${playerCount} round(s)`;
     } else if (
         (playerSelection === 'Scissors' && computerSelection === 'Rock') ||
@@ -27,6 +29,7 @@ function playRound(playerSelection, computerSelection) {
     ) {
         computerCount++;
         document.getElementById('cCount').textContent = computerCount;
+        document.getElementById('tie').textContent =`You have lost: you select ${playerSelection} and the computer select ${computerSelection}`;
         return `The computer has won ${computerCount} round(s)`;
     } else {
         return "Invalid selection. Please choose 'Rock', 'Paper', or 'Scissors'.";
@@ -49,6 +52,12 @@ function handlePlayerSelection(playerSelection) {
 
 
 function startGame() {
+    playerCount = 0;
+    computerCount = 0;
+    roundsPlayed = 0;
+    gameRunning = false;
+    document.getElementById('pCount').textContent = '0';
+    document.getElementById('cCount').textContent = '0';
     if (gameRunning) {
         return;
     }
@@ -68,10 +77,10 @@ function resetGame() {
 function endGame() {
     gameRunning = false;
     if(playerCount > computerCount){
-        alert('congra you have won')
+        alert('Congratulations! You have won.')
     }
     if(playerCount < computerCount){
-        alert('Sorry you have lost')
+        alert('Sorry, you have lost.')
     }
 }
 
@@ -88,7 +97,8 @@ function initializeGame() {
         handlePlayerSelection('Scissors');
     });
 
-    document.getElementById('startResetButton').addEventListener('click', startResetGame);
+    document.getElementById('startButton').addEventListener('click', startGame);
+    document.getElementById('resetButton').addEventListener('click', resetGame);
 }
 
 window.addEventListener('load', initializeGame);

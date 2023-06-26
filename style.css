@@ -43,7 +43,7 @@ header img{
 }
 
 .playerResult{
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    
     font-size: 20px;
     text-align: center;
     margin: auto;
@@ -51,12 +51,20 @@ header img{
 }
 
 .computerResult{
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    
     font-size: 20px;
     text-align: center;
     margin: auto;
     padding: auto;    
 }
+#tie{
+    
+    font-size: 20px;
+    text-align: center;
+    margin: auto;
+    padding: 30px;  
+    align-items: center;
+} 
 
 .button-container {
     display: flex;
@@ -73,3 +81,15 @@ header img{
     border-radius: 10px;
   }
   
+footer {
+    border-top: black 1px solid;
+    padding-top:5px;
+   
+}
+footer p{
+    font-size: 20px;
+    text-align: center;
+    margin: auto; 
+    align-items: center;
+   
+}
